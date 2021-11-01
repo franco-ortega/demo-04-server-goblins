@@ -29,6 +29,7 @@
 1. heroku config (to view database URL)
 1. add DATABASE_URL to .env
 1. add LOCALHOST_URL to .env
+1. Connect to PostgreSQL (localhost and live URL)
 1. Files/folders
    1. ./sql
       1. database.sql
