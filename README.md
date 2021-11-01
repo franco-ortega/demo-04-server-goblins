@@ -15,3 +15,4 @@
    1. ./lib
       1. app.js
    1. server.js
+   1. .env
