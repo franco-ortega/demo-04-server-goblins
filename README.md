@@ -7,10 +7,11 @@
 1. npm init -y
 1. npm install eslint --save-dev
 1. npx eslint --init
+1. add "node": true to eslint
 1. add eslint rules
 1. npm i express
 1. npm i dotenv
-1. add "node": true to eslint
+1. change "main" in package.json to "server.js"
 1. Files/folders
    1. ./lib
       1. app.js
@@ -19,6 +20,7 @@
 
 ### Database
 
+1. npm install pg
 1. heroku login
 1. heroku create goblin-database
    1. https://goblin-database.herokuapp.com/ | https://git.heroku.com/goblin-database.git
@@ -30,3 +32,10 @@
 1. Files/folders
    1. ./sql
       1. database.sql
+   1. .lib/utils
+      1. pool.js
+         1. add "require('dotenv').config();" to top of file
+
+### API
+
+1. Configure Heroku to deploy from GitHub from main branch
