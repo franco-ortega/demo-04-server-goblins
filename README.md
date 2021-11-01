@@ -40,3 +40,21 @@
 ### API
 
 1. Configure Heroku to deploy from GitHub from main branch
+1. npm install jest --save-dev
+   1. Update test script in package.json to use jest
+1. npm install supertest --save-dev
+1. Add "module": true to eslint
+1. Files/folders
+   1. ./_ tests _
+   1. ./lib/models
+      1. Goblin.js
+
+---
+
+## MISC
+
+### Create Database:
+
+const fs = require('fs');\
+pool.query(fs.readFileSync('./sql/database.sql', 'utf-8')); \
+pool.end();
