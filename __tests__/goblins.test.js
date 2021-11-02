@@ -26,4 +26,35 @@ describe('Goblin endpoint tests', () => {
       items: ['apple muffin', 'tiny watch on chain'],
     })
   })
-})
+
+  it('retrieves all goblins via GET', async() => {
+    await request(app)
+    .post('/api/v1/goblins')
+    .send({
+      goblinName: 'Daliu',
+      hitPoints: 7,
+      armorClass: 12,
+      items: ['purple gem', 'bucket'],
+    });
+
+    const response = await request(app)
+      .get('/api/v1/goblins');
+
+    expect(response.body).toEqual([
+      {
+      id: '1',
+      goblinName: 'Taru',
+      hitPoints: 5,
+      armorClass: 14,
+      items: ['apple muffin', 'tiny watch on chain'],
+      },
+      {
+        id: '2',
+        goblinName: 'Daliu',
+        hitPoints: 7,
+        armorClass: 12,
+        items: ['purple gem', 'bucket'],
+      }
+    ]);
+  });
+});
