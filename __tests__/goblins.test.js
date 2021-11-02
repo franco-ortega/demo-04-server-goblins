@@ -24,10 +24,19 @@ describe('Goblin endpoint tests', () => {
       hitPoints: 5,
       armorClass: 14,
       items: ['apple muffin', 'tiny watch on chain'],
-    })
-  })
+    });
+  });
 
   it('retrieves all goblins via GET', async() => {
+    await request(app)
+      .post('/api/v1/goblins')
+      .send({
+        goblinName: 'Taru',
+        hitPoints: 5,
+        armorClass: 14,
+        items: ['apple muffin', 'tiny watch on chain'],
+      });
+
     await request(app)
     .post('/api/v1/goblins')
     .send({
