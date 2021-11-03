@@ -45,9 +45,12 @@
 1. npm install supertest --save-dev
 1. Add "module": true to eslint
 1. Files/folders
+
    1. ./_ tests _
    1. ./lib/models
       1. Goblin.js
+
+1. npm i cors
 
 ---
 
