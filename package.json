@@ -2,9 +2,9 @@
   "name": "demo-04-server-goblins",
   "version": "1.0.0",
   "description": "Server with API and Database",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -19,9 +19,12 @@
   "homepage": "https://github.com/franco-ortega/demo-04-server-goblins#readme",
   "dependencies": {
     "dotenv": "^10.0.0",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "pg": "^8.7.1"
   },
   "devDependencies": {
-    "eslint": "^8.1.0"
+    "eslint": "^8.1.0",
+    "jest": "^27.3.1",
+    "supertest": "^6.1.6"
   }
 }
