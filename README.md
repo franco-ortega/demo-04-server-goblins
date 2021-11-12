@@ -83,6 +83,14 @@ If you would like to try out this project locally, the first steps will be to cl
 
 ---
 
+### Frontend (client)
+
+You can read about the client (website) at this repo:
+
+[GitHub repo - client](https://github.com/franco-ortega/demo-04-client-goblins)
+
+---
+
 ## Setup
 
 This is a list of how I install dependencies and modified files for setup.
