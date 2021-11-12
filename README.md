@@ -12,35 +12,25 @@ The server consists of a RESTful API and relational database. There is currently
 
 If you want to post to the database, such as by using Postman, this is the shape of the data that you need to send and the data types of the values:
 
-<code>
+<pre>
 {
-   
-goblinName: "string",
-
-hitPoints: number,
-
-armorClass: number,
-
-items: ["string", "string", "string"]
-
+   goblinName: "string",
+   hitPoints: number,
+   armorClass: number,
+   items: ["string", "string", "string"]
 }
-</code>
+</pre>
 
 This is an example of how the data would look as raw JSON:
 
-<code>
+<pre>
 {
-   
-"goblinName": "Veruth",
-
-"hitPoints": 10,
-
-"armorClass": 10,
-
-"items": ["cake", "rope", "pipe"]
-
+   "goblinName": "Veruth",
+   "hitPoints": 10,
+   "armorClass": 10,
+   "items": ["cake", "rope", "pipe"]
 }
-</code>
+</pre>
 
 Officially, the hit points can range between 5 - 10, and the armor class can range between 10-15 because hit points have a minimum value of 5 and armor class has a minimum value of 10. The user is provided a pool of 5 additional points that can be used to increased one or both stats. Therefore, a goblin could max out at 10 hp and 10 AC, or 7 hp and 13 AC, or 5 hp and 15 AC, and so on. The two stats can add up to no higher than 20. However, this limit is handled on the client side. Therefore, for the time being, you could technically provide any number for the hit points and armor class by making a POST request directly to the database.
 
