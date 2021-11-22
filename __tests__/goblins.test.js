@@ -27,6 +27,34 @@ describe('Goblin endpoint tests', () => {
     });
   });
 
+  it('updates a goblin via PUT', async() => {
+    const goblin = await request(app)
+      .post('/api/v1/goblins')
+      .send({
+        goblinName: 'Taru',
+        hitPoints: 5,
+        armorClass: 14,
+        items: ['apple muffin', 'tiny watch on chain']
+      });
+
+    const response = await request(app)
+      .put(`/api/v1/goblins/${goblin.body.id}`)
+      .send({
+        goblinName: 'Taru',
+        hitPoints: 6,
+        armorClass: 14,
+        items: ['apple pie', 'big watch on chain'],
+      });
+
+    expect(response.body).toEqual({
+      id: '1',
+      goblinName: 'Taru',
+      hitPoints: 6,
+      armorClass: 14,
+      items: ['apple pie', 'big watch on chain'],
+    });
+  });
+
   it('retrieves all goblins via GET', async() => {
     await request(app)
       .post('/api/v1/goblins')
@@ -81,33 +109,5 @@ describe('Goblin endpoint tests', () => {
         items: ['spoon', 'helmet', 'spice', 'pumpkin', 'cat bones', 'mushroom', 'bowtie']
       }
     ]);
-  });
-
-  it('updates a goblin via PUT', async() => {
-    const goblin = await request(app)
-      .post('/api/v1/goblins')
-      .send({
-        goblinName: 'Taru',
-        hitPoints: 5,
-        armorClass: 14,
-        items: ['apple muffin', 'tiny watch on chain']
-      });
-
-    const response = await request(app)
-      .put(`/api/v1/goblins/${goblin.body.id}`)
-      .send({
-        goblinName: 'Taru',
-        hitPoints: 6,
-        armorClass: 14,
-        items: ['apple pie', 'big watch on chain'],
-      });
-
-    expect(response.body).toEqual({
-      id: '1',
-      goblinName: 'Taru',
-      hitPoints: 6,
-      armorClass: 14,
-      items: ['apple pie', 'big watch on chain'],
-    });
   });
 });
