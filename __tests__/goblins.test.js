@@ -15,7 +15,7 @@ describe('Goblin endpoint tests', () => {
         goblinName: 'Taru',
         hitPoints: 5,
         armorClass: 14,
-        items: ['apple muffin', 'tiny watch on chain'],
+        items: ['apple muffin', 'tiny watch on chain']
       });
 
     expect(response.body).toEqual({
@@ -90,11 +90,11 @@ describe('Goblin endpoint tests', () => {
         goblinName: 'Taru',
         hitPoints: 5,
         armorClass: 14,
-        items: ['apple muffin', 'tiny watch on chain'],
+        items: ['apple muffin', 'tiny watch on chain']
       });
 
     const response = await request(app)
-      .put(`/api/v1/goblins/${goblin.id}`)
+      .put(`/api/v1/goblins/${goblin.body.id}`)
       .send({
         goblinName: 'Taru',
         hitPoints: 6,
