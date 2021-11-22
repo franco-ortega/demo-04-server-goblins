@@ -16,7 +16,7 @@ describe('Goblin endpoint tests', () => {
         hitPoints: 5,
         armorClass: 14,
         items: ['apple muffin', 'tiny watch on chain'],
-      })
+      });
 
     expect(response.body).toEqual({
       id: '1',
@@ -81,5 +81,33 @@ describe('Goblin endpoint tests', () => {
         items: ['spoon', 'helmet', 'spice', 'pumpkin', 'cat bones', 'mushroom', 'bowtie']
       }
     ]);
+  });
+
+  it('updates a goblin via PUT', async() => {
+    const goblin = await request(app)
+      .post('/api/v1/goblins')
+      .send({
+        goblinName: 'Taru',
+        hitPoints: 5,
+        armorClass: 14,
+        items: ['apple muffin', 'tiny watch on chain'],
+      });
+
+    const response = await request(app)
+      .put(`/api/v1/goblins/${goblin.id}`)
+      .send({
+        goblinName: 'Taru',
+        hitPoints: 6,
+        armorClass: 14,
+        items: ['apple pie', 'big watch on chain'],
+      });
+
+    expect(response.body).toEqual({
+      id: '1',
+      goblinName: 'Taru',
+      hitPoints: 6,
+      armorClass: 14,
+      items: ['apple pie', 'big watch on chain'],
+    });
   });
 });
