@@ -46,6 +46,15 @@ describe('Goblin endpoint tests', () => {
       items: ['purple gem', 'bucket'],
     });
 
+    await request(app)
+    .post('/api/v1/goblins')
+    .send({
+      goblinName: 'Tarvin',
+      hitPoints: 10,
+      armorClass: 10,
+      items: ['spoon', 'helmet', 'spice', 'pumpkin', 'cat bones', 'mushroom', 'bowtie']
+    });
+
     const response = await request(app)
       .get('/api/v1/goblins');
 
@@ -63,6 +72,13 @@ describe('Goblin endpoint tests', () => {
         hitPoints: 7,
         armorClass: 12,
         items: ['purple gem', 'bucket'],
+      },
+      {
+        id: '3',
+        goblinName: 'Tarvin',
+        hitPoints: 10,
+        armorClass: 10,
+        items: ['spoon', 'helmet', 'spice', 'pumpkin', 'cat bones', 'mushroom', 'bowtie']
       }
     ]);
   });
